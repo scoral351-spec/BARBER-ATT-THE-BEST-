@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BARBER ATT THE BEST | Barbería Premium</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Playfair+Display:wght@600;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Navegación -->
+  <header class="header">
+    <div class="logo">BARBER <span>ATT THE BEST</span></div>
+    <nav class="nav">
+      <a href="#inicio">Inicio</a>
+      <a href="#galeria">Estilos</a>
+      <a href="#reserva" class="btn-nav">Reservar Cita</a>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section id="inicio" class="hero">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <h1>ELEGANCIA & PRECISIÓN</h1>
+      <p>La máxima experiencia en estilo masculino y cuidado personal.</p>
+      <a href="#reserva" class="btn-gold">Agendar Cita</a>
+    </div>
+  </section>
+
+  <!-- Galería de Estilos / Imágenes -->
+  <section id="galeria" class="gallery-section">
+    <h2>NUESTROS ESTILOS</h2>
+    <div class="gold-divider"></div>
+    
+    <div class="gallery-grid">
+      <div class="gallery-card">
+        <img src="images/corte-1.jpg" alt="Corte Clásico">
+        <div class="card-info">
+          <h3>Fade & Beard</h3>
+          <p>Degradado perfecto con perfilado de barba a navaja.</p>
+        </div>
+      </div>
+
+      <div class="gallery-card">
+        <img src="images/corte-2.jpg" alt="Corte Moderno">
+        <div class="card-info">
+          <h3>Executive Cut</h3>
+          <p>Elegancia clásica refinada con productos de alta gama.</p>
+        </div>
+      </div>
+
+      <div class="gallery-card">
+        <img src="images/corte-3.jpg" alt="Diseño de Barba">
+        <div class="card-info">
+          <h3>Royal Treatment</h3>
+          <p>Toalla caliente, tratamiento facial y diseño exclusivo.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sistema de Reservas -->
+  <section id="reserva" class="booking-section">
+    <div class="booking-container">
+      <h2>RESERVA TU EXPERIENCIA</h2>
+      <p>Selecciona la fecha y hora para tu próximo servicio.</p>
+      
+      <form id="booking-form">
+        <div class="input-group">
+          <label for="nombre">Nombre Completo</label>
+          <input type="text" id="nombre" placeholder="Ej. Carlos Mendoza" required>
+        </div>
+
+        <div class="input-group">
+          <label for="telefono">Teléfono / WhatsApp</label>
+          <input type="tel" id="telefono" placeholder="+57 300 000 0000" required>
+        </div>
+
+        <div class="input-group">
+          <label for="servicio">Servicio</label>
+          <select id="servicio" required>
+            <option value="" disabled selected>Selecciona un servicio</option>
+            <option value="Corte de Cabello">Corte Premium</option>
+            <option value="Perfilado de Barba">Barba Royal</option>
+            <option value="Combo Completo">Combo Barber ATT The Best</option>
+          </select>
+        </div>
+
+        <div class="input-row">
+          <div class="input-group">
+            <label for="fecha">Fecha</label>
+            <input type="date" id="fecha" required>
+          </div>
+
+          <div class="input-group">
+            <label for="hora">Hora</label>
+            <input type="time" id="hora" required>
+          </div>
+        </div>
+
+        <button type="submit" class="btn-gold block">Confirmar Reserva</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2026 BARBER ATT THE BEST. Todos los derechos reservados.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
