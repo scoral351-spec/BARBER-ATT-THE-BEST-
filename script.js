@@ -1,44 +1,51 @@
-```javascript
-document.getElementById('booking-form').addEventListener('submit', function(e) {
+document.addEventListener("DOMContentLoaded", function () {
 
-  e.preventDefault();
+  const formulario = document.getElementById("booking-form");
 
-  // Obtener los datos del formulario
-  const nombre = document.getElementById('nombre').value.trim();
-  const telefono = document.getElementById('telefono').value.trim();
-  const servicio = document.getElementById('servicio').value;
-  const fecha = document.getElementById('fecha').value;
-  const hora = document.getElementById('hora').value;
+  formulario.addEventListener("submit", function (e) {
 
-  // Número de WhatsApp de la barbería
-  const numeroBarberia = "573196999604";
+    e.preventDefault();
 
-  // Convertir la fecha a formato colombiano
-  const fechaFormateada = new Date(fecha + "T00:00:00")
-    .toLocaleDateString("es-CO", {
-      day: "2-digit",
-      month: "2-digit",
-      year: "numeric"
-    });
+    const nombre = document.getElementById("nombre").value.trim();
+    const telefono = document.getElementById("telefono").value.trim();
+    const servicio = document.getElementById("servicio").value;
+    const fecha = document.getElementById("fecha").value;
+    const hora = document.getElementById("hora").value;
 
-  // Crear mensaje
-  const textoMensaje = `💈 *NUEVA RESERVA - BARBER ATT THE BEST* 💈
+    if (!nombre || !telefono || !servicio || !fecha || !hora) {
+      alert("Por favor completa todos los campos.");
+      return;
+    }
 
-👤 *Cliente:* ${nombre}
-📱 *Teléfono:* ${telefono}
-✂️ *Servicio:* ${servicio}
-📅 *Fecha:* ${fechaFormateada}
-⏰ *Hora:* ${hora}
+    const numeroBarberia = "573196999604";
+
+    const fechaFormateada = new Date(fecha + "T00:00:00")
+      .toLocaleDateString("es-CO", {
+        day: "2-digit",
+        month: "2-digit",
+        year: "numeric"
+      });
+
+    const mensaje = `💈 *BARBER ATT THE BEST* 💈
+
+*NUEVA RESERVA*
+
+👤 Cliente: ${nombre}
+📱 Teléfono: ${telefono}
+✂️ Servicio: ${servicio}
+📅 Fecha: ${fechaFormateada}
+⏰ Hora: ${hora}
 
 ¡Hola! Me gustaría confirmar esta cita.`;
 
-  // Codificar mensaje
-  const mensajeCodificado = encodeURIComponent(textoMensaje);
+    const enlaceWhatsApp =
+      "https://wa.me/" +
+      numeroBarberia +
+      "?text=" +
+      encodeURIComponent(mensaje);
 
-  // Abrir WhatsApp
-  const url = `https://wa.me/${numeroBarberia}?text=${mensajeCodificado}`;
+    window.location.href = enlaceWhatsApp;
 
-  window.open(url, "_blank");
+  });
 
 });
-```
