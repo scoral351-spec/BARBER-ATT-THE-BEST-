@@ -87,47 +87,120 @@
   <!-- Sistema de Reservas -->
   <section id="reserva" class="booking-section">
     <div class="booking-container">
-      <h2>RESERVA TU EXPERIENCIA</h2>
-      <p>Selecciona la fecha y hora para tu próximo servicio.</p>
-      
-      <form id="booking-form">
-        <div class="input-group">
-          <label for="nombre">Nombre Completo</label>
-          <input type="text" id="nombre" placeholder="Ej. Carlos Mendoza" required>
-        </div>
+      ```html
+<h2>RESERVA TU EXPERIENCIA</h2>
+<p>Selecciona la fecha y hora para tu próximo servicio.</p>
 
-        <div class="input-group">
-          <label for="telefono">Teléfono / WhatsApp</label>
-          <input type="tel" id="telefono" placeholder="+57 0000000000" required>
-        </div>
+<form id="booking-form">
 
-        <div class="input-group">
-          <label for="servicio">Servicio</label>
-          <select id="servicio" required>
-            <option value="" disabled selected>Selecciona un servicio</option>
-            <option value="Corte de Cabello">Corte Premium</option>
-            <option value="Perfilado de Barba">Barba Royal</option>
-            <option value="Combo Completo">Combo Barber ATT The Best</option>
-          </select>
-        </div>
+  <div class="input-group">
+    <label for="nombre">Nombre Completo</label>
+    <input 
+      type="text" 
+      id="nombre" 
+      placeholder="Ej. Carlos Mendoza" 
+      required
+    >
+  </div>
 
-        <div class="input-row">
-          <div class="input-group">
-            <label for="fecha">Fecha</label>
-            <input type="date" id="fecha" required>
-          </div>
+  <div class="input-group">
+    <label for="telefono">Teléfono / WhatsApp</label>
+    <input 
+      type="tel" 
+      id="telefono" 
+      placeholder="+57 0000000000" 
+      required
+    >
+  </div>
 
-          <div class="input-group">
-            <label for="hora">Hora</label>
-            <input type="time" id="hora" required>
-          </div>
-        </div>
+  <div class="input-group">
+    <label for="servicio">Servicio</label>
+    <select id="servicio" required>
+      <option value="" disabled selected>Selecciona un servicio</option>
+      <option value="Corte Premium">Corte Premium</option>
+      <option value="Barba Royal">Barba Royal</option>
+      <option value="Combo Barber ATT The Best">
+        Combo Barber ATT The Best
+      </option>
+    </select>
+  </div>
 
-        <button type="submit" class="btn-gold block">Confirmar Reserva</button>
-      </form>
+  <div class="input-row">
+
+    <div class="input-group">
+      <label for="fecha">Fecha</label>
+      <input 
+        type="date" 
+        id="fecha" 
+        required
+      >
     </div>
-  </section>
 
+    <div class="input-group">
+      <label for="hora">Hora</label>
+      <input 
+        type="time" 
+        id="hora" 
+        required
+      >
+    </div>
+
+  </div>
+
+  <button type="submit" class="btn-gold block">
+    Confirmar Reserva
+  </button>
+
+</form>
+
+<script>
+document.getElementById("booking-form").addEventListener("submit", function(event) {
+
+  event.preventDefault();
+
+  // DATOS DEL FORMULARIO
+  const nombre = document.getElementById("nombre").value;
+  const telefono = document.getElementById("telefono").value;
+  const servicio = document.getElementById("servicio").value;
+  const fecha = document.getElementById("fecha").value;
+  const hora = document.getElementById("hora").value;
+
+  // NÚMERO DE WHATSAPP DE LA BARBERÍA
+  // Escribe aquí el número con código de país.
+  // Colombia = 57
+  const numeroBarberia = "573196999604";
+
+  // Convertir fecha a formato más agradable
+  const fechaFormateada = new Date(fecha + "T00:00:00")
+    .toLocaleDateString("es-CO", {
+      day: "2-digit",
+      month: "2-digit",
+      year: "numeric"
+    });
+
+  // MENSAJE QUE RECIBIRÁ LA BARBERÍA
+  const mensaje = 
+`💈 *NUEVA RESERVA - BARBER ATT THE BEST* 💈
+
+👤 *Nombre:* ${nombre}
+📱 *Teléfono:* ${telefono}
+✂️ *Servicio:* ${servicio}
+📅 *Fecha:* ${fechaFormateada}
+⏰ *Hora:* ${hora}
+
+¡Hola! Quiero reservar este servicio.`;
+
+  // Convertir el mensaje para usarlo en WhatsApp
+  const mensajeWhatsApp = encodeURIComponent(mensaje);
+
+  // Abrir WhatsApp
+  const url = `https://wa.me/${numeroBarberia}?text=${mensajeWhatsApp}`;
+
+  window.open(url, "_blank");
+
+});
+</script>
+```
   <!-- Footer -->
   <footer>
     <p>&copy; 2026 BARBER ATT THE BEST. Todos los derechos reservados.</p>
