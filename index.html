@@ -1,211 +1,99 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>BARBER ATT THE BEST | Barbería Premium</title>
-  <link rel="stylesheet" href="estilos.css">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Playfair+Display:wght@600;800&display=swap" rel="stylesheet">
-</head>
-<body>
+```html
+<section class="booking" id="reservas">
 
-  <!-- Navegación -->
-  <header class="header">
-    <div class="logo">BARBER <span>ATT THE BEST</span></div>
-    <nav class="nav">
-      <a href="#inicio">Inicio</a>
-      <a href="#nosotros">Nosotros</a>
-      <a href="#galeria">Estilos</a>
-      <a href="#reserva" class="btn-nav">Reservar Cita</a>
-    </nav>
-  </header>
+  <div class="booking-container">
 
-  <!-- Hero Section -->
-  <section id="inicio" class="hero">
-    <div class="hero-overlay"></div>
-    <div class="hero-content">
-      <h1>ELEGANCIA & PRECISIÓN</h1>
-      <p>La máxima experiencia en estilo masculino y cuidado personal.</p>
-      <a href="#reserva" class="btn-gold">Agendar Cita</a>
-    </div>
-  </section>
+    <h2>RESERVA TU EXPERIENCIA</h2>
 
-  <!-- Sección Misión y Visión -->
-  <section id="nosotros" class="about-section">
-    <div class="about-container">
-      <h2>NUESTRA ESENCIA</h2>
-      <div class="gold-divider"></div>
-      
-      <div class="about-grid">
-        <div class="about-card">
-          <h3>MISIÓN</h3>
-          <p>Ayudar a nuestros clientes a mejorar su imagen personal, aumentar su confianza y ofrecer una experiencia agradable en un ambiente cómodo, respetuoso y profesional.</p>
-        </div>
+    <p>Selecciona la fecha y hora para tu próximo servicio.</p>
 
-        <div class="about-card">
-          <h3>VISIÓN</h3>
-          <p>Ser reconocidos como una de las mejores barberías de la región, destacándonos por nuestra excelente atención, calidad de trabajo y constante crecimiento, ampliando nuestros servicios y generando nuevas oportunidades de empleo.</p>
-        </div>
-      </div>
-    </div>
-  </section>
+    <form id="booking-form">
 
-  <!-- Galería de Estilos / Imágenes -->
-  <section id="galeria" class="gallery-section">
-    <h2>NUESTROS ESTILOS</h2>
-    <div class="gold-divider"></div>
-    
-    <div class="gallery-grid">
-      <div class="gallery-card">
-        <img src="corte.jpg" alt="Corte Clásico">
-        <div class="card-info">
-          <h3>Fade & Beard</h3>
-          <p>Degradado perfecto con perfilado de barba a navaja.</p>
-        </div>
+      <div class="input-group">
+        <label for="nombre">Nombre Completo</label>
+        <input
+          type="text"
+          id="nombre"
+          placeholder="Ej. Carlos Mendoza"
+          required
+        >
       </div>
 
-      <div class="gallery-card">
-        <img src="perfilacion.jpg" alt="Corte Moderno">
-        <div class="card-info">
-          <h3>Executive Cut</h3>
-          <p>Elegancia clásica refinada con productos de alta gama.</p>
-        </div>
+      <div class="input-group">
+        <label for="telefono">Teléfono / WhatsApp</label>
+        <input
+          type="tel"
+          id="telefono"
+          placeholder="+57 300 000 0000"
+          required
+        >
       </div>
 
-      <div class="gallery-card">
-        <img src="barba.jpg" alt="Diseño de Barba">
-        <div class="card-info">
-          <h3>Royal Treatment</h3>
-          <p>Toalla caliente, tratamiento facial y diseño exclusivo.</p>
-        </div>
+      <div class="input-group">
+        <label for="servicio">Servicio</label>
+
+        <select id="servicio" required>
+
+          <option value="" disabled selected>
+            Selecciona un servicio
+          </option>
+
+          <option value="Corte Premium">
+            Corte Premium
+          </option>
+
+          <option value="Barba Royal">
+            Barba Royal
+          </option>
+
+          <option value="Combo Barber ATT The Best">
+            Combo Barber ATT The Best
+          </option>
+
+        </select>
       </div>
-    </div>
-  </section>
 
-  <!-- Sistema de Reservas -->
-  <section id="reserva" class="booking-section">
-    <div class="booking-container">
-      ```html
-<h2>RESERVA TU EXPERIENCIA</h2>
-<p>Selecciona la fecha y hora para tu próximo servicio.</p>
+      <div class="input-row">
 
-<form id="booking-form">
+        <div class="input-group">
+          <label for="fecha">Fecha</label>
 
-  <div class="input-group">
-    <label for="nombre">Nombre Completo</label>
-    <input 
-      type="text" 
-      id="nombre" 
-      placeholder="Ej. Carlos Mendoza" 
-      required
-    >
-  </div>
+          <input
+            type="date"
+            id="fecha"
+            required
+          >
+        </div>
 
-  <div class="input-group">
-    <label for="telefono">Teléfono / WhatsApp</label>
-    <input 
-      type="tel" 
-      id="telefono" 
-      placeholder="+57 0000000000" 
-      required
-    >
-  </div>
+        <div class="input-group">
+          <label for="hora">Hora</label>
 
-  <div class="input-group">
-    <label for="servicio">Servicio</label>
-    <select id="servicio" required>
-      <option value="" disabled selected>Selecciona un servicio</option>
-      <option value="Corte Premium">Corte Premium</option>
-      <option value="Barba Royal">Barba Royal</option>
-      <option value="Combo Barber ATT The Best">
-        Combo Barber ATT The Best
-      </option>
-    </select>
-  </div>
+          <input
+            type="time"
+            id="hora"
+            required
+          >
+        </div>
 
-  <div class="input-row">
+      </div>
 
-    <div class="input-group">
-      <label for="fecha">Fecha</label>
-      <input 
-        type="date" 
-        id="fecha" 
-        required
+      <button
+        type="submit"
+        class="btn-gold block"
       >
-    </div>
+        Confirmar Reserva
+      </button>
 
-    <div class="input-group">
-      <label for="hora">Hora</label>
-      <input 
-        type="time" 
-        id="hora" 
-        required
-      >
-    </div>
+    </form>
 
   </div>
 
-  <button type="submit" class="btn-gold block">
-    Confirmar Reserva
-  </button>
+</section>
 
-</form>
 
-<script>
-document.getElementById("booking-form").addEventListener("submit", function(event) {
+<!-- JavaScript -->
+<script src="script.js"></script>
 
-  event.preventDefault();
-
-  // DATOS DEL FORMULARIO
-  const nombre = document.getElementById("nombre").value;
-  const telefono = document.getElementById("telefono").value;
-  const servicio = document.getElementById("servicio").value;
-  const fecha = document.getElementById("fecha").value;
-  const hora = document.getElementById("hora").value;
-
-  // NÚMERO DE WHATSAPP DE LA BARBERÍA
-  // Escribe aquí el número con código de país.
-  // Colombia = 57
-  const numeroBarberia = "573196999604";
-
-  // Convertir fecha a formato más agradable
-  const fechaFormateada = new Date(fecha + "T00:00:00")
-    .toLocaleDateString("es-CO", {
-      day: "2-digit",
-      month: "2-digit",
-      year: "numeric"
-    });
-
-  // MENSAJE QUE RECIBIRÁ LA BARBERÍA
-  const mensaje = 
-`💈 *NUEVA RESERVA - BARBER ATT THE BEST* 💈
-
-👤 *Nombre:* ${nombre}
-📱 *Teléfono:* ${telefono}
-✂️ *Servicio:* ${servicio}
-📅 *Fecha:* ${fechaFormateada}
-⏰ *Hora:* ${hora}
-
-¡Hola! Quiero reservar este servicio.`;
-
-  // Convertir el mensaje para usarlo en WhatsApp
-  const mensajeWhatsApp = encodeURIComponent(mensaje);
-
-  // Abrir WhatsApp
-  const url = `https://wa.me/${numeroBarberia}?text=${mensajeWhatsApp}`;
-
-  window.open(url, "_blank");
-
-});
-</script>
-```
-  <!-- Footer -->
-  <footer>
-    <p>&copy; 2026 BARBER ATT THE BEST. Todos los derechos reservados.</p>
-  </footer>
-
-  <script src="script.js"></script>
 </body>
 </html>
+```
